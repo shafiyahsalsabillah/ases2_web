@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Form Example</title>
+</head>
+<body>
+    <form id="api-form">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required>
+
+        <label for="advice">Advice:</label>
+        <input type="text" id="advice" name="advice" required>
+
+        <label for="date">Date:</label>
+        <input type="text" id="date" name="date" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // Simulating the API response
+        const apiResponse = {"id":101,"advice":"Always do anything for love, but don't do that.","date":"2015-12-08"};
+
+        // Pre-filling the form with API data
+        document.getElementById('id').value = apiResponse.id;
+        document.getElementById('advice').value = apiResponse.advice;
+        document.getElementById('date').value = apiResponse.date;
+
+        // Handling form submission
+        document.getElementById('api-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Collecting form data
+            const formData = {
+                id: document.getElementById('id').value,
+                advice: document.getElementById('advice').value,
+                date: document.getElementById('date').value
+            };
+
+            // Printing form data to console (for demonstration purposes)
+            console.log(formData);
+
+            // Perform further actions (e.g., send data to API, update database, etc.)
+
+            // Resetting the form
+            this.reset();
+        });
+    </script>
+</body>
+</html>

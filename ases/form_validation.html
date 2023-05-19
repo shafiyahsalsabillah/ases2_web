@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation Example</title>
+</head>
+<body>
+    <form id="api-form">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required>
+
+        <label for="advice">Advice:</label>
+        <input type="text" id="advice" name="advice" required>
+
+        <label for="date">Date:</label>
+        <input type="text" id="date" name="date" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // Form validation
+        document.getElementById('api-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Validate ID field
+            const idInput = document.getElementById('id');
+            const idValue = idInput.value.trim();
+            if (idValue === '') {
+                alert('ID field is required.');
+                idInput.focus();
+                return;
+            }
+
+            // Validate Advice field
+            const adviceInput = document.getElementById('advice');
+            const adviceValue = adviceInput.value.trim();
+            if (adviceValue === '') {
+                alert('Advice field is required.');
+                adviceInput.focus();
+                return;
+            }
+
+            // Validate Date field
+            const dateInput = document.getElementById('date');
+            const dateValue = dateInput.value.trim();
+            if (dateValue === '') {
+                alert('Date field is required.');
+                dateInput.focus();
+                return;
+            }
+
+            // Proceed with form submission
+            // ...
+
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
